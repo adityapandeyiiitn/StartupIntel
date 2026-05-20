@@ -9,7 +9,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+// Enable CORS – restrict to the deployed frontend (set FRONTEND_ORIGIN env var) or allow all in dev
+const corsOptions = {
+  origin: process.env.FRONTEND_ORIGIN || '*',
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
