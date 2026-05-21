@@ -45,14 +45,14 @@ export const SavedPage = () => {
   const fadeUp = { hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45 } } };
 
   return (
-    <div className="max-w-6xl mx-auto px-8 py-10">
+    <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10">
       {/* Page Header */}
       <motion.div initial="hidden" animate="visible" variants={fadeUp} className="mb-10 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#48d2e1]/10 border-2 border-black rounded-full mb-4 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
           <Bookmark className="w-4 h-4 text-black fill-black" />
           <span className="text-[10px] font-black uppercase tracking-wider text-black">Personal Watchlist</span>
         </div>
-        <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-2">Your Saved Startups</h1>
+        <h1 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mb-2">Your Saved Startups</h1>
         <p className="text-slate-500 font-semibold text-sm max-w-xl mx-auto">
           Deep-dive analysis quick-access drawer. Track metrics, simulate outcomes, and compare battlecards of your curated list.
         </p>

@@ -208,11 +208,11 @@ export const CompanyPage = () => {
 
   if (loading) {
     return (
-      <div className="max-w-6xl mx-auto px-8 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-16">
         <div className="animate-pulse space-y-8">
           <div className="h-8 w-48 bg-slate-200 rounded-lg" />
           <div className="h-40 bg-slate-100 rounded-2xl" />
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[1,2,3].map(i => <div key={i} className="h-48 bg-slate-100 rounded-2xl" />)}
           </div>
         </div>
@@ -228,7 +228,7 @@ export const CompanyPage = () => {
   const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
   return (
-    <div className="max-w-6xl mx-auto px-8 py-10">
+    <div className="max-w-6xl mx-auto px-4 sm:px-8 py-6 sm:py-10">
       {/* Action Buttons Row */}
       <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
         <button
@@ -662,21 +662,21 @@ export const CompanyPage = () => {
 
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
             {/* Article header band */}
-            <div className="bg-gradient-to-r from-indigo-600 to-indigo-400 px-8 py-5">
+            <div className="bg-gradient-to-r from-indigo-600 to-indigo-400 px-4 sm:px-8 py-4 sm:py-5">
               <p className="text-indigo-100 text-xs font-bold uppercase tracking-widest mb-1">Full Case Study</p>
               <h3 className="text-white text-2xl font-bold">{company.name}</h3>
               <p className="text-indigo-200 text-sm mt-1">{company.tagline}</p>
             </div>
 
             {/* Quick stats bar */}
-            <div className="grid grid-cols-4 divide-x divide-slate-100 border-b border-slate-100">
+            <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 divide-x-0 sm:divide-x divide-slate-100 border-b border-slate-100">
               {[
                 { label: 'Problem', text: company.caseStudy.problem },
                 { label: 'Solution', text: company.caseStudy.solution },
                 { label: 'Outcome', text: company.caseStudy.outcome },
                 { label: 'Core Lesson', text: company.caseStudy.lessons },
               ].map(({ label, text }) => (
-                <div key={label} className="px-5 py-4">
+                <div key={label} className="px-4 sm:px-5 py-3 sm:py-4 border-b sm:border-b-0 border-r-0 sm:border-r border-slate-100 last:border-0">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">{label}</p>
                   <p className="text-xs text-slate-700 leading-relaxed line-clamp-3">{text}</p>
                 </div>
@@ -684,7 +684,7 @@ export const CompanyPage = () => {
             </div>
 
             {/* Article body */}
-            <div className="px-8 py-8 relative">
+            <div className="px-4 sm:px-8 py-6 sm:py-8 relative">
               {hasExceededFreeLimit ? (
                 <>
                   {/* Blurred mock paragraphs for visual weight */}
@@ -892,27 +892,29 @@ export const CompanyPage = () => {
 
             {/* TAB: Competitor Battlecard */}
             {activeProTab === 'battlecard' && (
-              <div className="space-y-6">
-                <div className="grid grid-cols-3 gap-4 border-b-2 border-black pb-3">
-                  <div className="text-xs font-black uppercase tracking-wider text-slate-400">Metric / Dimension</div>
-                  <div className="text-xs font-black uppercase tracking-wider text-black bg-[#48d2e1]/20 border border-black px-2 py-1 rounded-md shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">{company.name} (You)</div>
-                  <div className="text-xs font-black uppercase tracking-wider text-rose-950 bg-rose-100 border border-black px-2 py-1 rounded-md shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">{company.keyCompetitors?.[0] || 'Competitor A'}</div>
-                </div>
+              <div className="space-y-6 overflow-x-auto">
+                <div className="min-w-[480px]">
+                  <div className="grid grid-cols-3 gap-3 border-b-2 border-black pb-3">
+                    <div className="text-xs font-black uppercase tracking-wider text-slate-400">Metric</div>
+                    <div className="text-xs font-black uppercase tracking-wider text-black bg-[#48d2e1]/20 border border-black px-2 py-1 rounded-md shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">{company.name}</div>
+                    <div className="text-xs font-black uppercase tracking-wider text-rose-950 bg-rose-100 border border-black px-2 py-1 rounded-md shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">{company.keyCompetitors?.[0] || 'Competitor A'}</div>
+                  </div>
 
-                <div className="space-y-4">
-                  {[
-                    { label: 'Primary Moat', val1: company.swot?.strengths?.[0] || 'Brand & Distribution', val2: 'Aggressive pricing & lower margins' },
-                    { label: 'Core Technology Stack', val1: company.techStack?.slice(0, 3)?.join(', ') || 'React, Node', val2: 'Legacy PHP, MySQL, Apache' },
-                    { label: 'Revenue Generation', val1: company.overview?.revenueStreams?.[0] || 'SaaS model', val2: 'Ad-supported & transaction fees' },
-                    { label: 'Core Weakness', val1: company.swot?.weaknesses?.[0] || 'High acquisition costs', val2: 'Slower operational scaling speed' },
-                    { label: 'Growth Direction', val1: company.deepDive?.growthStrategy || 'ARPU optimization', val2: 'Unregulated organic expansion' },
-                  ].map((row, i) => (
-                    <div key={i} className="grid grid-cols-3 gap-4 text-xs items-start">
-                      <div className="font-extrabold text-slate-700">{row.label}</div>
-                      <div className="text-slate-900 bg-[#48d2e1]/5 p-2.5 rounded-lg border-2 border-black shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] font-semibold leading-relaxed">{row.val1}</div>
-                      <div className="text-rose-950 bg-rose-50/50 p-2.5 rounded-lg border border-black leading-relaxed font-semibold">{row.val2}</div>
-                    </div>
-                  ))}
+                  <div className="space-y-3 mt-3">
+                    {[
+                      { label: 'Primary Moat', val1: company.swot?.strengths?.[0] || 'Brand & Distribution', val2: 'Aggressive pricing & lower margins' },
+                      { label: 'Tech Stack', val1: company.techStack?.slice(0, 3)?.join(', ') || 'React, Node', val2: 'Legacy PHP, MySQL, Apache' },
+                      { label: 'Revenue', val1: company.overview?.revenueStreams?.[0] || 'SaaS model', val2: 'Ad-supported & transaction fees' },
+                      { label: 'Core Weakness', val1: company.swot?.weaknesses?.[0] || 'High acquisition costs', val2: 'Slower operational scaling speed' },
+                      { label: 'Growth', val1: company.deepDive?.growthStrategy || 'ARPU optimization', val2: 'Unregulated organic expansion' },
+                    ].map((row, i) => (
+                      <div key={i} className="grid grid-cols-3 gap-3 text-xs items-start">
+                        <div className="font-extrabold text-slate-700">{row.label}</div>
+                        <div className="text-slate-900 bg-[#48d2e1]/5 p-2.5 rounded-lg border-2 border-black shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] font-semibold leading-relaxed">{row.val1}</div>
+                        <div className="text-rose-950 bg-rose-50/50 p-2.5 rounded-lg border border-black leading-relaxed font-semibold">{row.val2}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}

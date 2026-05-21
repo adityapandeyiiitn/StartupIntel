@@ -81,11 +81,11 @@ export const LandingPage = () => {
   };
 
   return (
-    <div className="w-full bg-[#48d2e1] min-h-screen border-l-2 border-black flex flex-col">
-      <div className="w-full max-w-5xl mx-auto px-8 py-12 flex-1">
+    <div className="w-full bg-[#48d2e1] min-h-screen flex flex-col">
+      <div className="w-full max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 flex-1">
         
         {/* ── LOGO BRANDING HERO BANNER (Matches Uploaded Image 100% exactly) ── */}
-        <div className="relative flex flex-col items-center justify-center w-full text-center select-none mb-14 mt-4">
+        <div className="relative flex flex-col items-center justify-center w-full text-center select-none mb-8 sm:mb-14 mt-2 sm:mt-4">
           {/* Main Logo Text with exact fonts & colors per letter */}
           <div 
             className="flex items-center justify-center tracking-normal leading-none font-black text-5xl sm:text-6xl md:text-8xl mb-2 sm:mb-3"
@@ -144,30 +144,30 @@ export const LandingPage = () => {
           </div>
         </div>
 
-        {/* ── SEARCH PANEL (With Neo-brutalist bold black borders & solid shadow) ── */}
-        <div className="relative max-w-2xl mx-auto mb-14">
+        {/* ── SEARCH PANEL ── */}
+        <div className="relative max-w-2xl mx-auto mb-8 sm:mb-14">
           <div className="relative flex items-center bg-white rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-            <Search className="w-5 h-5 text-slate-500 ml-4 flex-shrink-0" />
+            <Search className="w-5 h-5 text-slate-500 ml-3 sm:ml-4 flex-shrink-0" />
             <input
               type="text"
               value={searchQuery}
               onChange={e => { setSearchQuery(e.target.value); setSearchParams(e.target.value ? { search: e.target.value } : {}); }}
-              placeholder="Search 100+ companies by name, industry, tech stack or founders..."
-              className="flex-1 bg-transparent px-4 py-4 text-slate-950 placeholder:text-slate-500 outline-none text-sm font-semibold"
+              placeholder="Search companies by name, industry..."
+              className="flex-1 bg-transparent px-3 sm:px-4 py-3 sm:py-4 text-slate-950 placeholder:text-slate-500 outline-none text-sm font-semibold min-w-0"
             />
             {searchQuery && (
-              <button onClick={clearSearch} className="mr-2 p-1.5 rounded-lg hover:bg-slate-100 transition-colors">
+              <button onClick={clearSearch} className="mr-1 p-1.5 rounded-lg hover:bg-slate-100 transition-colors flex-shrink-0">
                 <X className="w-4 h-4 text-slate-400" />
               </button>
             )}
-            <button className="bg-black hover:bg-slate-900 transition-colors text-white px-6 py-4 text-sm font-black border-l-2 border-black">
-              Search Intel
+            <button className="bg-black hover:bg-slate-900 transition-colors text-white px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-black border-l-2 border-black whitespace-nowrap flex-shrink-0">
+              Search
             </button>
           </div>
         </div>
 
         {/* ── HOW IT WORKS / APP BRIEF ── */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-8 sm:mb-14">
           {[
             { icon: ShieldCheck, title: 'SWOT Battlecards', text: 'Detailed breakdown of structural strengths, internal bottlenecks & external market hazards.', color: 'text-black' },
             { icon: Zap, title: 'Projections Simulator', titleAdd: 'PRO', text: 'Modify CAGR growth, net margins and target CAC via slider widgets to model valuations.', color: 'text-amber-600' },
@@ -194,7 +194,7 @@ export const LandingPage = () => {
           transition={{ duration: 0.4, delay: 0.15 }}
           className="mb-14"
         >
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-4 sm:mb-6 flex-wrap gap-2">
             <div className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-black" />
               <h2 className="text-base font-black text-slate-950">
@@ -204,7 +204,7 @@ export const LandingPage = () => {
               </h2>
             </div>
             {!searchQuery && (
-              <span className="text-xs text-slate-950 font-bold bg-white/40 px-2 py-0.5 rounded border border-black/10">{companies.length} startups aggregate</span>
+              <span className="text-xs text-slate-950 font-bold bg-white/40 px-2 py-0.5 rounded border border-black/10">{companies.length} startups</span>
             )}
           </div>
 
@@ -295,9 +295,9 @@ export const LandingPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-8"
+          className="mt-6 sm:mt-8"
         >
-          <Card className="relative overflow-hidden min-h-[380px] border-2 border-black bg-white rounded-3xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <Card className="relative overflow-hidden min-h-[320px] sm:min-h-[380px] border-2 border-black bg-white rounded-3xl p-4 sm:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             {/* Pro Lock overlay if not pro */}
             {!isPro && (
               <div className="absolute inset-0 bg-white/90 backdrop-blur-sm z-30 flex flex-col items-center justify-center p-6 text-center">

@@ -38,13 +38,13 @@ export const PricingPage = () => {
   const savings = billing === 'annual' ? Math.round(((699 - 499) / 699) * 100) : 0;
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-10">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12 flex flex-col items-center">
         <div className="inline-flex items-center gap-2 bg-[#48d2e1]/20 text-slate-950 text-xs font-black px-3 py-1.5 rounded-full mb-4 border-2 border-black">
           <Crown className="w-3.5 h-3.5 text-amber-500 fill-amber-500 stroke-black" /> Upgrade to Pro
         </div>
-        <h1 className="text-4xl font-black text-slate-900 mb-3 tracking-tight">Simple, Transparent Pricing</h1>
+        <h1 className="text-2xl sm:text-4xl font-black text-slate-900 mb-3 tracking-tight">Simple, Transparent Pricing</h1>
         <p className="text-slate-500 max-w-xl mx-auto font-semibold">Get the unfair advantage. Access AI insights, financial models, and deep-dive analytics used by India's top founders and analysts.</p>
 
         {/* Billing toggle */}
@@ -116,26 +116,30 @@ export const PricingPage = () => {
         </motion.div>
       </div>
 
-      {/* Feature comparison table */}
+      {/* Feature comparison table - scrollable on mobile */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
         className="bg-white rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden mb-12">
-        <div className="grid grid-cols-3 bg-slate-50 border-b-2 border-black px-6 py-4">
-          <div className="text-sm font-black text-slate-900">Feature</div>
-          <div className="text-sm font-black text-slate-600 text-center">Free</div>
-          <div className="text-sm font-black text-black text-center flex items-center justify-center gap-1">
-            <Crown className="w-3.5 h-3.5 text-amber-500 fill-amber-500 stroke-black" /> Pro
+        <div className="overflow-x-auto">
+          <div className="min-w-[480px]">
+            <div className="grid grid-cols-3 bg-slate-50 border-b-2 border-black px-4 sm:px-6 py-4">
+              <div className="text-sm font-black text-slate-900">Feature</div>
+              <div className="text-sm font-black text-slate-600 text-center">Free</div>
+              <div className="text-sm font-black text-black text-center flex items-center justify-center gap-1">
+                <Crown className="w-3.5 h-3.5 text-amber-500 fill-amber-500 stroke-black" /> Pro
+              </div>
+            </div>
+            {features.map((f, i) => (
+              <div key={i} className={`grid grid-cols-3 px-4 sm:px-6 py-3.5 items-center ${i % 2 === 0 ? '' : 'bg-slate-50/50'} border-b border-black/10 last:border-0`}>
+                <div>
+                  <p className="text-sm font-extrabold text-slate-900 leading-tight">{f.label}</p>
+                  <p className="text-xs text-slate-500 mt-0.5 font-semibold hidden sm:block">{f.detail}</p>
+                </div>
+                <FeatureCell value={f.free} />
+                <FeatureCell value={f.pro} />
+              </div>
+            ))}
           </div>
         </div>
-        {features.map((f, i) => (
-          <div key={i} className={`grid grid-cols-3 px-6 py-3.5 items-center ${i % 2 === 0 ? '' : 'bg-slate-50/50'} border-b border-black/10 last:border-0`}>
-            <div>
-              <p className="text-sm font-extrabold text-slate-900 leading-tight">{f.label}</p>
-              <p className="text-xs text-slate-500 mt-0.5 font-semibold">{f.detail}</p>
-            </div>
-            <FeatureCell value={f.free} />
-            <FeatureCell value={f.pro} />
-          </div>
-        ))}
       </motion.div>
 
       {/* CTA */}

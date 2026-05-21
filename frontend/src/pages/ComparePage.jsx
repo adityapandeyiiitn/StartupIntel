@@ -79,7 +79,7 @@ export const ComparePage = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
       {/* Back button */}
       <button onClick={() => navigate('/')} className="flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-cyan-500 transition-colors mb-6 group">
         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Explore
@@ -92,7 +92,7 @@ export const ComparePage = () => {
             <GitCompare className="w-5 h-5" />
           </div>
           <div>
-            <h1 className="text-2xl font-black text-slate-900 tracking-tight">Compare Startups</h1>
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Compare Startups</h1>
             <p className="text-sm text-slate-500 mt-0.5">
               {isPro 
                 ? 'Compare up to 10 startups side-by-side with full Pro metrics' 

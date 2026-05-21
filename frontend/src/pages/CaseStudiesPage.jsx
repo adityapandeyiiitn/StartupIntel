@@ -62,14 +62,14 @@ export const CaseStudiesPage = () => {
   const fadeUp = { hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
 
   return (
-    <div className="max-w-5xl mx-auto px-8 py-10">
+    <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-10">
       {/* Page Header */}
       <motion.div initial="hidden" animate="visible" variants={fadeUp} className="mb-10 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#48d2e1]/10 border-2 border-black rounded-full mb-4 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
           <BookOpen className="w-4 h-4 text-black" />
           <span className="text-[10px] font-black uppercase tracking-wider text-black">Deep-Dive Analytics</span>
         </div>
-        <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-2">1,000+ Word Startup Case Studies</h1>
+        <h1 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mb-2">1,000+ Word Startup Case Studies</h1>
         <p className="text-slate-500 font-semibold text-sm max-w-xl mx-auto">
           Read highly detailed, operational breakdown analyses of legendary Indian startups. Learn their problem statements, solutions, pivots, and ultimate lessons.
         </p>
@@ -179,7 +179,7 @@ export const CaseStudiesPage = () => {
                         exit={{ height: 0, opacity: 0 }}
                         className="bg-slate-50/50 border-t-2 border-black"
                       >
-                        <div className="p-8 max-w-3xl mx-auto space-y-6">
+                        <div className="p-4 sm:p-8 max-w-3xl mx-auto space-y-6">
                           {/* Case Study Meta Badges */}
                           <div className="grid grid-cols-2 gap-4 border-2 border-black rounded-xl p-4 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-6 text-center">
                             <div>

@@ -141,18 +141,18 @@ export const PaymentPage = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
         <button onClick={() => navigate('/pricing')} className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors text-sm mb-8">
           <ArrowLeft className="w-4 h-4" /> Back to Pricing
         </button>
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-10 h-10 bg-cyan-500 text-white rounded-xl flex items-center justify-center shadow-md shadow-cyan-500/25">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-2">
+          <div className="w-10 h-10 bg-cyan-500 text-white rounded-xl flex items-center justify-center shadow-md shadow-cyan-500/25 flex-shrink-0">
             <Crown className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-slate-900">Upgrade to StartupIntel Pro</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900">Upgrade to StartupIntel Pro</h1>
             <p className="text-slate-500 text-sm">Unlock AI insights, financial models & sector reports</p>
           </div>
         </div>
@@ -194,7 +194,7 @@ export const PaymentPage = () => {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
             <h2 className="text-sm font-bold text-slate-700 mb-3">Payment via Razorpay</h2>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {[
                 { icon: CreditCard, label: 'Cards', sub: 'Visa, Mastercard, Amex' },
                 { icon: Smartphone, label: 'UPI', sub: 'GPay, PhonePe, Paytm' },

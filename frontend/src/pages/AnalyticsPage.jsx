@@ -102,14 +102,14 @@ export const AnalyticsPage = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-8 py-10">
+    <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-10">
       {/* Header */}
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-6 sm:mb-8">
+        <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
           <BarChart3 className="w-5 h-5 text-white" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Analytics Lab</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-900">Analytics Lab</h1>
           <p className="text-slate-500 text-sm">Interactive sector aggregates, VC allocation trends & pitch simulators</p>
         </div>
       </div>
