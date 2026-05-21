@@ -88,7 +88,7 @@ export const LandingPage = () => {
         <div className="relative flex flex-col items-center justify-center w-full text-center select-none mb-8 sm:mb-14 mt-2 sm:mt-4">
           {/* Main Logo Text with exact fonts & colors per letter */}
           <div 
-            className="flex items-center justify-center tracking-normal leading-none font-black text-5xl sm:text-6xl md:text-8xl mb-2 sm:mb-3"
+            className="flex items-center justify-center tracking-normal leading-none font-black text-3xl sm:text-6xl md:text-8xl mb-2 sm:mb-3"
             style={{ fontFamily: "'Orbitron', sans-serif" }}
           >
             {/* S T A R T (White) */}

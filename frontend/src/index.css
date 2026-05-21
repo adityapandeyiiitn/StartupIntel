@@ -19,6 +19,13 @@
 }
 
 @layer base {
+  html,
+  body,
+  #root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-slate-50 text-slate-900 font-sans antialiased;
   }
