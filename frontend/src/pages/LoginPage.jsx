@@ -234,7 +234,7 @@ export const LoginPage = () => {
         <div className="text-center mb-8 flex flex-col items-center select-none">
           {/* Main Logo Text with exact fonts & colors per letter */}
           <div 
-            className="flex items-center justify-center tracking-normal leading-none font-black text-5xl mb-2"
+            className="flex items-center justify-center tracking-normal leading-none font-black text-3xl sm:text-5xl mb-2"
             style={{ fontFamily: "'Orbitron', sans-serif" }}
           >
             {/* S T A R T (White) */}
