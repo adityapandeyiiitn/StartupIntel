@@ -214,7 +214,9 @@ export const LoginPage = () => {
       setTimeout(() => navigate('/'), 1500);
     } catch (err) {
       console.error('Google login error:', err);
-      if (err.code !== 'auth/popup-closed-by-user') {
+      if (err.code === 'auth/unauthorized-domain') {
+        setError(`Domain "${window.location.hostname}" is not authorized. Please add it to "Authorized domains" in Firebase Console -> Authentication -> Settings.`);
+      } else if (err.code !== 'auth/popup-closed-by-user') {
         setError(err.message.replace('Firebase:', ''));
       }
     } finally {
