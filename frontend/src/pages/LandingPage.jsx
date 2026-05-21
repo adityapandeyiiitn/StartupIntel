@@ -169,10 +169,10 @@ export const LandingPage = () => {
         {/* ── HOW IT WORKS / APP BRIEF ── */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-8 sm:mb-14">
           {[
+            { icon: BarChart3, title: 'Case Studies', text: 'Analyze real startup journeys — growth, failures, pivots and what actually worked.', color: 'text-emerald-700' },
             { icon: ShieldCheck, title: 'SWOT Battlecards', text: 'Detailed breakdown of structural strengths, internal bottlenecks & external market hazards.', color: 'text-black' },
             { icon: Zap, title: 'Projections Simulator', titleAdd: 'PRO', text: 'Modify CAGR growth, net margins and target CAC via slider widgets to model valuations.', color: 'text-amber-600' },
             { icon: Target, title: 'AI Founder Chat', titleAdd: 'PRO', text: 'Interrogate simulated company founders regarding unit economics, pricing and failures.', color: 'text-black' },
-            { icon: BarChart3, title: 'Case Studies', text: 'Analyze real startup journeys — growth, failures, pivots and what actually worked.', color: 'text-emerald-700' },
           ].map((item, i) => (
             <Card key={i} className="p-5 border-2 border-black bg-white rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-2px] transition-all">
               <div className="flex items-center gap-2 mb-3">

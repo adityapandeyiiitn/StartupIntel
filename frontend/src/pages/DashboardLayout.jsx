@@ -39,9 +39,9 @@ export const DashboardLayout = () => {
 
   const navItems = [
     { name: 'Explore', icon: Compass, path: '/' },
+    { name: 'Case Studies', icon: BookOpen, path: '/case-studies' },
     { name: 'Compare', icon: GitCompare, path: '/compare' },
     { name: 'Analytics Lab', icon: BarChart3, path: '/analytics' },
-    { name: 'Case Studies', icon: BookOpen, path: '/case-studies' },
     { name: 'Saved', icon: Bookmark, path: '/saved' },
   ];
 
