@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, BookOpen, ChevronDown, ChevronUp, ArrowRight, Star, Sparkles, HelpCircle, Bookmark, Crown } from 'lucide-react';
 import { Card, Badge, SectionTitle, CompanyLogo } from '../components/ui/Components';
 import { useAuth } from '../context/AuthContext';
+import { API_URL } from '../config.js';
 
 export const CaseStudiesPage = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export const CaseStudiesPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:5000/api/companies')
+    fetch(`${API_URL}/api/companies`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {

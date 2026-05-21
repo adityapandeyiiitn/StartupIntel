@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Crown, Shield, CreditCard, Smartphone, CheckCircle, Loader2, ArrowLeft, Lock } from 'lucide-react';
+import { API_URL } from '../config.js';
 import { useAuth } from '../context/AuthContext';
 
 const plans = {
@@ -42,7 +43,7 @@ export const PaymentPage = () => {
 
     try {
       // 1. Create Order on Backend
-      const orderRes = await fetch('http://localhost:5000/api/payments/create-order', {
+      const orderRes = await fetch(`${API_URL}/api/payments/create-order`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +77,7 @@ export const PaymentPage = () => {
           try {
             setLoading(true);
             // 3. Verify Payment Signature on Backend
-            const verifyRes = await fetch('http://localhost:5000/api/payments/verify-signature', {
+            const verifyRes = await fetch(`${API_URL}/api/payments/verify-signature`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

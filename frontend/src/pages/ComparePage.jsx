@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, GitCompare, ChevronDown, Plus, Trash2, Shield, Crown, Sparkles } from 'lucide-react';
 import { Card } from '../components/ui/Components';
 import { useAuth } from '../context/AuthContext';
+import { API_URL } from '../config.js';
 
 export const ComparePage = () => {
   const { slug1, slug2 } = useParams();
@@ -25,7 +26,7 @@ export const ComparePage = () => {
 
   // Load all companies for selector dropdowns
   useEffect(() => {
-    fetch('http://localhost:5000/api/companies')
+    fetch(`${API_URL}/api/companies`)
       .then(r => r.json())
       .then(d => setAllCompanies(d))
       .catch(console.error);
@@ -39,7 +40,7 @@ export const ComparePage = () => {
     }
     setLoading(true);
     const query = selectedSlugs.join(',');
-    fetch(`http://localhost:5000/api/companies/compare-multi?slugs=${query}`, {
+    fetch(`${API_URL}/api/companies/compare-multi?slugs=${query}`, {
       headers: token ? { 'Authorization': `Bearer ${token}` } : {}
     })
       .then(r => {

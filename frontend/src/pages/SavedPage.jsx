@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Bookmark, ArrowRight, Trash2, ShieldCheck, Zap, Heart } from 'lucide-react';
 import { Card, Badge, SectionTitle, CompanyLogo } from '../components/ui/Components';
+import { API_URL } from '../config';
 
 export const SavedPage = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export const SavedPage = () => {
     setBookmarkedSlugs(saved);
 
     setLoading(true);
-    fetch('http://localhost:5000/api/companies')
+    fetch(`${API_URL}/api/companies`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {

@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { Card, Badge, CompanyLogo } from '../components/ui/Components';
 import { useAuth } from '../context/AuthContext';
+import { API_URL } from '../config.js';
 
 const industryColors = {
   'Food Delivery & Dining': 'emerald',
@@ -43,9 +44,9 @@ export const LandingPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:5000/api/companies')
+    fetch(`${API_URL}/api/companies`)
       .then(res => res.json())
-      .then(data => { setCompanies(data); setLoading(false); })
+      .then(data => { console.log('Fetched companies:', data); setCompanies(data); setLoading(false); })
       .catch(err => { console.error('Error fetching companies:', err); setLoading(false); });
   }, []);
 

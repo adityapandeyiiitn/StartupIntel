@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { Card, Badge } from '../components/ui/Components';
+import { API_URL } from '../config.js';
 
 const SECTOR_COLORS = ['#6366f1', '#10b981', '#f59e0b', '#ec4899', '#3b82f6', '#8b5cf6', '#ef4444'];
 
@@ -31,7 +32,7 @@ export const AnalyticsPage = () => {
   const [scorecard, setScorecard] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/companies')
+    fetch(`${API_URL}/api/companies`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {

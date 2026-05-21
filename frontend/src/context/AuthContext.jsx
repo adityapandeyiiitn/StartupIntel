@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { auth } from '../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { API_URL } from '../config.js';
 
 const AuthContext = createContext(null);
 
@@ -31,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 
           // Fetch fresh subscription plan status from backend database
           try {
-            const res = await fetch('http://localhost:5000/api/payments/status', {
+            const res = await fetch(`${API_URL}/api/payments/status`, {
               headers: {
                 'Authorization': `Bearer ${idToken}`
               }

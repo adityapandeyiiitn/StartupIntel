@@ -3,6 +3,7 @@ import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { Search, Compass, GitCompare, BookOpen, Bookmark, Crown, LogOut, User, CreditCard, ChevronDown, BarChart3, HelpCircle } from 'lucide-react';
 import { cn } from '../components/ui/Components';
 import { useAuth } from '../context/AuthContext';
+import { API_URL } from '../config.js';
 
 export const DashboardLayout = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export const DashboardLayout = () => {
   const [profileOpen, setProfileOpen] = useState(false);
 
   React.useEffect(() => {
-    fetch('http://localhost:5000/api/companies')
+    fetch(`${API_URL}/api/companies`)
       .then(res => res.json())
       .then(data => { if (Array.isArray(data)) setCompaniesCount(data.length); })
       .catch(() => {});

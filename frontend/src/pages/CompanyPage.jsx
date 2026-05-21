@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { Card, Badge, SectionTitle, CompanyLogo, cn } from '../components/ui/Components';
 import { useAuth } from '../context/AuthContext';
+import { API_URL } from '../config.js';
 
 const teaserRevenueGrowth = [
   { year: '2021', revenue: 10 },
@@ -124,7 +125,7 @@ export const CompanyPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/api/companies/${slug}`, {
+    fetch(`${API_URL}/api/companies/${slug}`, {
       headers: token ? { 'Authorization': `Bearer ${token}` } : {}
     })
       .then(res => res.json())
